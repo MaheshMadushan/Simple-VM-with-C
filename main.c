@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <header.h>
+#include "header.h"
 #include <stdbool.h>
 
 const int program[] = {
@@ -16,19 +16,11 @@ int sp = -99; // stack pointer
 int stack[512];
 bool running = true;
 
-int main(){
-    while(running){
-        eval(fetch()); // PSH
-        ip++; // incrementing PC
-    }
-    return 0;
-}
-
 int fetch(){
     return program[ip];
 }
 
-void eval(int instr){
+void evalIns(int instr){
     switch(instr){
         case HLT:{
             running = false;
@@ -37,6 +29,7 @@ void eval(int instr){
         case PSH:{
             sp++;
             stack[sp] = program[++ip]; // ++ip is assign to x (program[x]) then increment if ip = 98 after ++ip program[99]
+            break;
         }
         case ADD: {
             int a = stack[sp--];
@@ -52,3 +45,12 @@ void eval(int instr){
         }
     }
 }
+
+int main(){
+    while(running){
+        evalIns(fetch()); // PSH
+        ip++; // incrementing PC
+    }
+    return 0;
+}
+
