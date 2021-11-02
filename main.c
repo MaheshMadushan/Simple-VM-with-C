@@ -13,9 +13,10 @@ const int program[] = {
 
 int ip = 0; // instruction pointer
 int sp = -99; // stack pointer
-int stack[512];
+int stack[512]; // stack of size 512
 bool running = true;
 
+// fetches data or instrctuion in the program
 int fetch(){
     return program[ip];
 }
