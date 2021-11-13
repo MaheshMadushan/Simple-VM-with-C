@@ -9,7 +9,7 @@ const int program[] = {
     ADD,
     POP,
     HLT
-};
+}; // simple program that runs on this VM
 
 int ip = 0; // instruction pointer
 int sp = -99; // stack pointer
