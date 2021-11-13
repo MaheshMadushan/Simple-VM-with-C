@@ -11,6 +11,7 @@ const int program[] = {
     HLT
 }; // simple program that runs on this VM
 
+// global variables
 int ip = 0; // instruction pointer
 int sp = -99; // stack pointer
 int stack[512]; // stack of size 512
@@ -37,7 +38,7 @@ void evalIns(int instr){
             int a = stack[sp--];
             int b = stack[sp--];
             int result=a+b;
-            stack[sp++] = result;
+            stack[++sp] = result;
             break;
         }
         case POP:{
