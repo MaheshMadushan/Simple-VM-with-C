@@ -14,11 +14,13 @@
  *   and include that header file wherever it is required.
 **/
 
+// registers
 typedef enum {
     A,B,C,D,E,F,
     NUM_OF_REGISTERS
 } Registers;
 
+// all instructions
 typedef enum {
     PSH,
     ADD,
