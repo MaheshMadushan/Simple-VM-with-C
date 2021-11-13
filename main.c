@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-#include "header.h"
 #include <stdbool.h>
+#include "header.h"
 
 const int program[] = {
     PSH, 5,
@@ -16,11 +16,12 @@ int sp = -99; // stack pointer
 int stack[512]; // stack of size 512
 bool running = true;
 
-// fetches data or instrctuion in the program
+// fetches data or instrction in the program
 int fetch(){
     return program[ip];
 }
 
+// instructions get evaluated here and execute command or do outputs
 void evalIns(int instr){
     switch(instr){
         case HLT:{
