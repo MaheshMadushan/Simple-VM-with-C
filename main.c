@@ -50,6 +50,7 @@ void evalIns(int instr){
 }
 
 int main(){
+    // this executes fetch decode execute cycle
     while(running){
         evalIns(fetch()); // PSH
         ip++; // incrementing PC
