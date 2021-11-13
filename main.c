@@ -4,8 +4,8 @@
 #include "header.h"
 
 const int program[] = {
-    PSH, 5,
-    PSH, 6,
+    PSH, 345,
+    PSH, 989,
     ADD,
     POP,
     HLT
