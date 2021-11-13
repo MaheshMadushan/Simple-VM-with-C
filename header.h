@@ -1,6 +1,6 @@
 /***
  * A header file is a file with extension .h which contains C function
- *  declarations and macro definitions to be shared between several source files. There are two types of header files: the files that the programmer writes and the files that comes with your compiler.
+ * declarations and macro definitions to be shared between several source files. There are two types of header files: the files that the programmer writes and the files that comes with your compiler.
  * You request to use a header file in your program by 
  * including it with the C preprocessing directive #include, 
  * like you have seen inclusion of stdio.h header file, 
