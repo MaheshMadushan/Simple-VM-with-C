@@ -9,9 +9,9 @@
  * Including a header file is equal to copying the content of the header file 
  * but we do not do it because it will be error-prone and it is not a good idea to copy the
  * content of a header file in the source files, especially if we have multiple source files in a program.
- *  A simple practice in C or C++ programs is that we keep all the constants, macros, system 
- *   wide global variables, and function prototypes in the header files 
- *   and include that header file wherever it is required.
+ * A simple practice in C or C++ programs is that we keep all the constants, macros, system 
+ * wide global variables, and function prototypes in the header files 
+ * and include that header file wherever it is required.
 **/
 
 // registers
