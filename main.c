@@ -6,6 +6,7 @@
 const int program[] = {
     PSH, 345,
     PSH, 989,
+    MUL,
     ADD,
     POP,
     HLT
@@ -34,6 +35,15 @@ void evalIns(int instr){
             stack[sp] = program[++ip]; // ++ip is assign to x (program[x]) then increment if ip = 98 after ++ip program[99]
             break;
         }
+        // mul top elenets in the stack
+        case MUL:{
+            int a = stack[sp--];
+            int b = stack[sp--];
+            int result = a * b;
+            stack[++sp] = result;
+            break;
+        }
+        // adds top elements in stack
         case ADD: {
             int a = stack[sp--];
             int b = stack[sp--];
