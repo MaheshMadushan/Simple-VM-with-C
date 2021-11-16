@@ -26,6 +26,7 @@ typedef enum {
 typedef enum {
     PSH,
     ADD,
+    MUL,
     POP,
     SET,
     HLT
