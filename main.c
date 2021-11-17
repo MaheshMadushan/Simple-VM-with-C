@@ -7,14 +7,13 @@ const int program[] = {
     PSH, 345,
     PSH, 989,
     MUL,
-    ADD,
     POP,
     HLT
 }; // simple program that runs on this VM
 
 // global variables
 int ip = 0; // instruction pointer
-int sp = -99; // stack pointer
+int sp = 0; // stack pointer
 int stack[512]; // stack of size 512
 bool running = true;
 
@@ -31,14 +30,14 @@ void evalIns(int instr){
             break;
         }
         case PSH:{
-            sp++;
             stack[sp] = program[++ip]; // ++ip is assign to x (program[x]) then increment if ip = 98 after ++ip program[99]
+            sp++;
             break;
         }
         // mul top elenets in the stack
         case MUL:{
-            int a = stack[sp--];
-            int b = stack[sp--];
+            int a = stack[--sp];
+            int b = stack[--sp];
             int result = a * b;
             stack[++sp] = result;
             break;
