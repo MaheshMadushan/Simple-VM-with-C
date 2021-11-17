@@ -42,10 +42,18 @@ void evalIns(int instr){
             stack[++sp] = result;
             break;
         }
+        
+        case SUB:{
+            int a = stack[sp--];
+            int b = stack[sp--];
+            int result = a - b;
+            stack[++sp] = result;
+            break;
+        }
         case DIV:{
             int a = stack[sp--];
             int b = stack[sp--];
-            int resulgt = a / b;
+            int result = a / b;
             stack[++sp] = result;
             break;
         }
