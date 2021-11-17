@@ -42,6 +42,13 @@ void evalIns(int instr){
             stack[++sp] = result;
             break;
         }
+        case DIV:{
+            int a = stack[sp--];
+            int b = stack[sp--];
+            int resulgt = a / b;
+            stack[++sp] = result;
+            break;
+        }
         // adds top elements in stack
         case ADD: {
             int a = stack[sp--];
