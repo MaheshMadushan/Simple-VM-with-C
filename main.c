@@ -36,10 +36,10 @@ void evalIns(int instr){
         }
         // mul top elenets in the stack
         case MUL:{
-            int a = stack[--sp];
-            int b = stack[--sp];
-            int result = a * b;
-            stack[++sp] = result;
+            Registers[A] = stack[--sp];
+            Registers[B] = stack[--sp];
+            Registers[C] = Registers[A] * Registers[B];
+            stack[++sp] = Registers[C];
             break;
         }
         
