@@ -25,13 +25,23 @@ int fetch(){
 // instructions get evaluated here and execute command or do outputs
 void evalIns(int instr){
     switch(instr){
+        
         case HLT:{
             running = false;
             break;
         }
+
         case PSH:{
             stack[sp] = program[++ip]; // ++ip is assign to x (program[x]) then increment if ip = 98 after ++ip program[99]
             sp++;
+            break;
+        }
+        // adds top elements in stack
+        case ADD: {
+            Registers[A] = stack[--sp];
+            Registers[B] = stack[--sp];
+            Registers[C] = Registers[A] + Registers[B];
+            stack[++sp] = Registers[C];
             break;
         }
         // mul top elenets in the stack
@@ -42,27 +52,18 @@ void evalIns(int instr){
             stack[++sp] = Registers[C];
             break;
         }
-        
+         case DIV:{
+            Registers[A] = stack[--sp];
+            Registers[B] = stack[--sp];
+            Registers[C] = Registers[A] / Registers[B];
+            stack[++sp] = Registers[C];
+            break;
+        }
         case SUB:{
-            int a = stack[sp--];
-            int b = stack[sp--];
-            int result = a - b;
-            stack[++sp] = result;
-            break;
-        }
-        case DIV:{
-            int a = stack[sp--];
-            int b = stack[sp--];
-            int result = a / b;
-            stack[++sp] = result;
-            break;
-        }
-        // adds top elements in stack
-        case ADD: {
-            int a = stack[sp--];
-            int b = stack[sp--];
-            int result=a+b;
-            stack[++sp] = result;
+            Registers[A] = stack[--sp];
+            Registers[B] = stack[--sp];
+            Registers[C] = Registers[A] - Registers[B];
+            stack[++sp] = Registers[C];
             break;
         }
         case POP:{
