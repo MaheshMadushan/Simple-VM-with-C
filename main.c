@@ -44,6 +44,7 @@ void evalIns(int instr){
             stack[sp++] = program[++ip];
             registers[stack[sp]] = registers[stack[--sp]];
             sp--;
+            break;
         }
         // adds top elements in stack
         case ADD: {
