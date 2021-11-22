@@ -39,11 +39,11 @@ void evalIns(int instr){
             sp++;
             break;
         }
-        case MOV{
+        case MOV : {
             stack[sp++] = program[++ip];
             stack[sp++] = program[++ip];
             registers[stack[sp]] = registers[stack[--sp]];
-            --sp;
+            sp--;
         }
         // adds top elements in stack
         case ADD: {
