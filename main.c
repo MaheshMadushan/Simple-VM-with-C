@@ -47,6 +47,7 @@ void evalIns(int instr){
                 ip = newip;
                 // TODO : do jump true
             }
+            break;
         }
         // adds top elements in stack
         case ADD: {
