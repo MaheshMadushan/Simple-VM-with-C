@@ -11,6 +11,9 @@ const int program[] = {
     HLT
 }; // simple program that runs on this VM
 
+// creating registers array of size num of registers
+static int registers[NUM_OF_REGISTERS];
+
 // global variables
 int ip = 0; // instruction pointer
 int sp = 0; // stack pointer
@@ -36,34 +39,40 @@ void evalIns(int instr){
             sp++;
             break;
         }
+        case MOV{
+            stack[sp++] = program[++ip];
+            stack[sp++] = program[++ip];
+            registers[stack[sp]] = registers[stack[--sp]];
+            --sp;
+        }
         // adds top elements in stack
         case ADD: {
-            Registers[A] = stack[--sp];
-            Registers[B] = stack[--sp];
-            Registers[C] = Registers[A] + Registers[B];
-            stack[++sp] = Registers[C];
+            registers[A] = stack[--sp];
+            registers[B] = stack[--sp];
+            registers[C] = registers[A] + registers[B];
+            stack[++sp] = registers[C];
             break;
         }
         // mul top elenets in the stack
         case MUL:{
-            Registers[A] = stack[--sp];
-            Registers[B] = stack[--sp];
-            Registers[C] = Registers[A] * Registers[B];
-            stack[++sp] = Registers[C];
+            registers[A] = stack[--sp];
+            registers[B] = stack[--sp];
+            registers[C] = registers[A] * registers[B];
+            stack[++sp] = registers[C];
             break;
         }
          case DIV:{
-            Registers[A] = stack[--sp];
-            Registers[B] = stack[--sp];
-            Registers[C] = Registers[A] / Registers[B];
-            stack[++sp] = Registers[C];
+            registers[A] = stack[--sp];
+            registers[B] = stack[--sp];
+            registers[C] = registers[A] / registers[B];
+            stack[++sp] = registers[C];
             break;
         }
         case SUB:{
-            Registers[A] = stack[--sp];
-            Registers[B] = stack[--sp];
-            Registers[C] = Registers[A] - Registers[B];
-            stack[++sp] = Registers[C];
+            registers[A] = stack[--sp];
+            registers[B] = stack[--sp];
+            registers[C] = registers[A] - registers[B];
+            stack[++sp] = registers[C];
             break;
         }
         case POP:{
