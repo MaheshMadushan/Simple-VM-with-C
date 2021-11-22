@@ -48,13 +48,6 @@ void evalIns(int instr){
                 // TODO : do jump true
             }
         }
-        case MOV : {
-            stack[sp++] = program[++ip];
-            stack[sp++] = program[++ip];
-            registers[stack[sp]] = registers[stack[--sp]];
-            sp--;
-            break;
-        }
         // adds top elements in stack
         case ADD: {
             registers[A] = stack[--sp];
