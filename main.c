@@ -39,6 +39,15 @@ void evalIns(int instr){
             sp++;
             break;
         }
+        case IF: {
+            int reg = program[++ip]; // reg
+            int value = program[++ip]; // value to compare
+            int newip =  program[++ip];
+            if(registers[stack[--sp]] == value){
+                ip = newip;
+                // TODO : do jump true
+            }
+        }
         case MOV : {
             stack[sp++] = program[++ip];
             stack[sp++] = program[++ip];
