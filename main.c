@@ -27,6 +27,7 @@ int fetch(){
 
 // instructions get evaluated here and execute command or do outputs
 void evalIns(int instr){
+    is_jmp = false;
     switch(instr){
         
         case HLT:{
@@ -45,7 +46,7 @@ void evalIns(int instr){
             int newip =  program[++ip];
             if(registers[stack[--sp]] == value){
                 ip = newip;
-                // TODO : do jump true
+                is_jmp = true;
             }
             break;
         }
@@ -88,9 +89,10 @@ void evalIns(int instr){
 }
 int main(){
     // this executes fetch decode execute cycle
+    bool is_jmp = false
     while(running){
         evalIns(fetch()); // PSH
-        ip++; // incrementing PC
+        if(is_jmp == false) ip++; // incrementing PC
     }
     return 0;
 }
