@@ -39,6 +39,17 @@ void evalIns(int instr){
             break;
         }
         // IF reg val ip : IF register[reg] == val then jump to the instruction which is shown by ip
+        case IFN: {
+            int reg = program[++ip]; // reg
+            int value = program[++ip]; // value to compare
+            int newip =  program[++ip];
+            if(registers[stack[--sp]] == value){
+                ip = newip;
+                is_jmp = true;
+            }
+            break;
+        }
+        // IF reg val ip : IF register[reg] == val then jump to the instruction which is shown by ip
         case IF: {
             int reg = program[++ip]; // reg
             int value = program[++ip]; // value to compare
