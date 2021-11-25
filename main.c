@@ -29,17 +29,16 @@ int fetch(){
 void evalIns(int instr){
     is_jmp = false;
     switch(instr){
-        
         case HLT:{
             running = false;
             break;
         }
-
         case PSH:{
             stack[sp] = program[++ip]; // ++ip is assign to x (program[x]) then increment if ip = 98 after ++ip program[99]
             sp++;
             break;
         }
+        // IF reg val ip : IF register[reg] == val then jump to the instruction which is shown by ip
         case IF: {
             int reg = program[++ip]; // reg
             int value = program[++ip]; // value to compare
